@@ -158,7 +158,11 @@
 
 <!-- education section end  -->
 
-
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
 <!-- portfolio section start  -->
 
 <section id="portfolio" class="portfolio">
@@ -167,23 +171,24 @@
 
 <div class="box-container">
 
-    <div id = "aboutme1" class="box" >
-        <img src="img/img-1.png" alt="Университет" title="Выпускной из университета 2022">
+    <div class="box" >
+        <img src="img/img-1.png" alt="Выпускной из университета 2022" title="Выпускной из университета 2022" id = "myImg">
+        
     </div>
     <div class="box">
-        <img src="img/img-2.png" alt="Цвет" title="Мой любимый цвет - черный">
+        <img src="img/img-2.png" alt="Мой любимый цвет - черный" title="Мой любимый цвет - черный">
     </div>
     <div class="box">
-        <img src="img/img-3.png" alt="Нуралиев" title="Ты должен был бороться со злом, а не примкнуть к нему ">
+        <img src="img/img-3.png" alt="Ты должен был бороться со злом, а не примкнуть к нему" title="Ты должен был бороться со злом, а не примкнуть к нему ">
     </div>
     <div class="box">
-        <img src="img/img-4.png" alt="Котик" title="А это мой кот. Его зовут Макс">
+        <img src="img/img-4.png" alt="А это мой кот. Его зовут Макс" title="А это мой кот. Его зовут Макс">
     </div>
     <div class="box">
-        <img src="img/img-5.png" alt="Питер" title="Мне нравится искусство">
+        <img src="img/img-5.png" alt="Мне нравится искусство" title="Мне нравится искусство">
     </div>
     <div class="box">
-        <img src="img/img-6.png" alt="Хехе" title="И я очень люблю вкусно покушать :)">
+        <img src="img/img-6.png" alt="И я очень люблю вкусный кофе :)" title="И я очень люблю вкусно покушать :)">
     </div>
 
 </div>
@@ -253,17 +258,54 @@
         openMenu.classList.toggle('active');
     }
 
-   /* let moreBlock = document.getElementById("aboutme1");
+// Получаем модальное окно
+var modal = document.getElementById('myModal');
 
-    if (moreBlock.style.display === "none") {
-        moreBlock.style.display = "block";
-        showBtn.style.display = "none";
-        hideBtn.style.display = "block";
+// Получаем элемент <img> для модального содержимого
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+// Получаем все изображения в контейнере и добавляем обработчик событий на клик
+var images = document.querySelectorAll('.box img');
+images.forEach(img => {
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+});
+
+// Получаем элемент <span> (x), который закрывает модальное окно
+var span = document.getElementsByClassName("close")[0];
+
+// Когда пользователь нажимает на <span> (x), закрыть модальное окно
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  // Получаем все элементы <i> в контейнере
+  var icons = document.querySelectorAll('.box i');
+
+  // Добавляем обработчик событий на клик для каждого элемента <i>
+  icons.forEach(icon => {
+    icon.addEventListener('click', function() {
+      // Переключаем видимость элементов <h3> и <p>
+      var title = this.nextElementSibling.nextElementSibling;
+      var info = title.nextElementSibling;
+      if (title.style.display === "none") {
+        title.style.display = "block";
+        info.style.display = "block";
       } else {
-        moreBlock.style.display = "none";
-        showBtn.style.display = "block";
-        hideBtn.style.display = "none";
-      }*/
+        title.style.display = "none";
+        info.style.display = "none";
+      }
+    });
+  });
+});
+
+
 
 </script>
     

@@ -339,12 +339,14 @@ header .navbar ul li a:hover {
     font-size: var(--medium-fz);
     color: #fff;
     padding-top: 1.5rem;
+    display: block; /* Или 'none', если хотите, чтобы они были скрыты изначально */
 }
 
 .education .box-container .box p {
     font-size: 1.5rem;
     color: #fff;
     padding: 1rem 0rem;
+    display: block; /* Или 'none', если хотите, чтобы они были скрыты изначально */
 }
 
 
@@ -398,6 +400,60 @@ header .navbar ul li a:hover {
     visibility: visible;
   }
 
+/* Стиль модального окна */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Остается на месте при прокрутке */
+    z-index: 1; /* Сидит на вершине */
+    padding-top: 100px; /* Расположение от верха */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если необходимо */
+    background-color: rgb(0,0,0); /* Цвет фона */
+    background-color: rgba(0,0,0,0.9); /* Черный с небольшой прозрачностью */
+  }
+  
+  /* Стиль изображения внутри модального окна */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Стиль подписи под изображением */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: var(--medium-fz)
+  }
+  
+  /* Стиль кнопки закрыть (x) */
+  .close {
+    position: absolute;
+    top:  6%;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
 /* portfolio section end  */
 
 /* contact section start  */
